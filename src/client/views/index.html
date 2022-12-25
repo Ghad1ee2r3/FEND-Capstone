@@ -1,69 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.scss">
-        <link rel="stylesheet" href="/styles/base.scss">
-        <link rel="stylesheet" href="/styles/header.scss">
-        <link rel="stylesheet" href="/styles/form.scss">
-        <link rel="stylesheet" href="/styles/footer.scss">
-    </head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blogs</title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+      name="viewport"
+    />
+    <link rel="stylesheet" href="../styles/Index.scss">
+    <link rel="stylesheet" href="../styles/Home.scss">
+    <link rel="stylesheet" href="../styles/images.scss">
+    <link rel="stylesheet" href="../styles/cards.scss">
 
-    <body>
+  </head>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
+  <body>
+  <div class = "container">
 
-        <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="url" type="text" name="input" value="" onblur="onBlur()" placeholder="url">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                 <!-- polarity: (positive/'negative') -->
-                <div id="polarity"></div>
-                <!-- subjectivity: ('subjective', factual) -->
-                <div id="subjectivity"></div>
-
-                <div id="results"></div>
-                <!-- text: a text snippet from the article --> -->
-                <div id="text"></div>
-                <!-- <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
-                <div id="score_tag"></div> -->
-            </section>
-        </main>
-
-
-        
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-    <script>
-        // Check that service workers are supported
-        if ('serviceWorker' in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js');
-            });
-        }
-       </script>
-
+    <!-- Header Part  -->
+    <div class="header box">
+      <ul class="navbar">
+        <li><a href="index.html" class="item">Home</a></li>
        
-    </body>
+        <li><a href="#contact_us"class="item" >Contact</a></li>
+       
+      </ul>
+    </div>
 
+    <!-- content part  -->
+    <div class="content_home box">
+    <form class="search-box" onsubmit="return userInput(event)">
+      <label>City:</label>
+      <input id="city" type="text" name="input" value="" onblur="onBlur()" placeholder="city">
+      <label>Date:</label>
+      <input  id="date" type="date"/>
+      <input id="button" type="submit" name="" value="submit" onclick="return userInput(event)" onsubmit="return userInput(event)">
+  </form>
+    
+
+          <div class="cards">
+
+
+            <!-- card 1  -->
+            <div class="card"> 
+              <!-- <div class="typography"> -->
+               <div class="item_of_card"> <img id="image-of-city"class="image_card" src="../media/Artificial-Intelligence.jpg" alt="AI BLOG IMAGE">
+              </div>
+              <h5>Trip info</h5>
+                <div class="item_of_card">
+                  <h1 id="city-name"></h1>
+                
+               </div>
+              <!-- </div> -->
+              
+             </div>
+
+
+            
+        </div> <!-- End list of cards -->
+
+
+    </div> <!-- End container box -->
+
+    <!-- footer  -->
+    <div class="footer box">
+      <footer>&copy; Copyright 2022 </footer>
+      <div id="contact_us">
+        <p>Author: Ghadeer Alanazi<br>
+          <a href="mailto:GhadeerAskarAlanazi@gmail.com">GhadeerAskarAlanazi@gmail.com</a></p>
+      </div>
+    </div>
+
+    
+<!-- End of Container -->
+  </div>
+ 
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script>
+  </body>
 </html>

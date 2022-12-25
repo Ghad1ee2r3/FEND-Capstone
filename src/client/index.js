@@ -1,15 +1,8 @@
-import { checkForName } from "./js/nameChecker";
-import { handleSubmit } from "./js/formHandler";
-import { checkURL } from "./js/checkURL";
+import { picker } from "./js/date_picker";
+import { updateUI } from "./js/app";
 
-import "./styles/resets.scss";
-import "./styles/base.scss";
-import "./styles/form.scss";
-import "./styles/footer.scss";
-import "./styles/header.scss";
-console.log(checkForName);
+import "./styles/cards.scss";
+import "./styles/Home.scss";
+import "./styles/images.scss";
 
-alert("I EXIST");
-console.log("CHANGE!!");
-
-export { checkForName, handleSubmit, checkURL };
+export { picker, updateUI };

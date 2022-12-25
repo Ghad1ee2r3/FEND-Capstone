@@ -1,0 +1,55 @@
+.typography{
+    text-align: left;
+     color: aliceblue; 
+     color: #000;
+    width: fit-content;
+    margin: auto;
+    font: 1em sans-serif;
+    line-height: 1.3em;
+  
+  } 
+  
+   .cards{
+      display:flex;
+      align-self: center;
+      flex-direction:column;
+       /* border: 2px solid yellow;  */
+       align-items:center 
+   }  
+  
+   .card{
+          width: 700px;
+          height: 250px;
+          flex-direction:row;
+          display: inline;
+           /* border: 1px solid red;  */
+           margin: 25px;
+          /* justify-content:left; */
+          float:left;
+          background-color: rgb(221, 235, 234); 
+          border-radius: 5px;
+      }
+       .item_of_card{
+        float:left;
+        margin: 10px;
+       }
+    .search-box{
+        background-color: rgb(221, 235, 234); 
+        /* width: 700px;*/
+        height: 50px; 
+        padding: 10px;
+        margin: 30px;
+        border: #000 dashed;
+    }
+
+    .search-box button{
+        width: 200px;
+        height: 30px;
+        background-color: aqua;
+    }
+
+    .search-box button:focus{
+        width: 200px;
+        height: 30px;
+        background-color: rgb(82, 138, 138);
+    }

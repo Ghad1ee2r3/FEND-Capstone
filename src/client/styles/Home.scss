@@ -1,0 +1,71 @@
+/* home page  */
+
+/* Screen of Phane */
+.container{
+    /* Set display to grid */
+      display:grid; 
+   /* setup rows amd columns */
+      
+      grid-template-rows: 100px 5fr 1fr;
+      background-image: url('../media/background_home.jpg');
+      grid-template-areas: 
+      "hd "
+      "main_H "
+      "ft "; 
+     
+  } 
+  
+  /* Screen of Desktop or Ipad */
+  @media(min-width:800px) {
+    .container_blog_page{
+        
+      /*  display to grid */
+      display:grid; 
+      /* setup rows amd columns */
+       grid-template-columns: 300px 300px 300px;
+      grid-template-rows: 100px 600px;
+      background-image: url('../media/background_home.jpg');
+      grid-template-areas: 
+      "hd hd hd hd hd hd hd hd"
+      "main_H main_H main_H main_H main_H main_H main_H main_H"
+      "ft ft ft ft ft ft ft ft"; 
+     
+        
+      } 
+  }
+  .box{
+    /* border: 1px solid red;
+    background: #F8FA9D; */
+     }
+  .header{
+    grid-area:hd;
+    background-color: black;
+  
+  }
+  .footer{
+    grid-area:ft;
+  }
+  
+  .content_home{
+    grid-area:main_H;
+    background-image: url('../media/background_home.jpg');
+  }
+  li {
+  display: inline;
+  margin: 50px;
+  }
+  .navbar {
+  background-color: black;
+  height: 30%;
+  
+  } 
+  
+  .item{
+  color: white;
+  }
+  
+  footer {
+  text-align: center;
+  background-color: rgb(64, 57, 55);
+  color: white;
+  } 
