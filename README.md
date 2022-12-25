@@ -17,7 +17,7 @@ Remember that once you clone, you will still need to install everything:
 
 ## Setting up the API
 
-The Tool used in this project is :
+The API used in this project is :
 
 - geonames api
 - Weatherbit API
