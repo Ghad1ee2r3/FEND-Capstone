@@ -16,18 +16,23 @@ app.use(express.static("dist"));
 console.log(__dirname);
 
 // Three URL'S and there API keys
-const geoNamesApiKey = `&username=${process.env.GEONAMES_API}`;
+// const geoNamesApiKey = `&username=${process.env.GEONAMES_API}`;
+const geoNamesApiKey = `&username=ghad1ee2r3`;
+
 const geoNamesRoot = "http://api.geonames.org/searchJSON?q=";
 const geoNamesParams = "&maxRows=1";
 
-// url (e.g)http://api.geonames.org/searchJSON?q=saudi-arabia&maxRows=1&username=ghad
+// url (e.g)http://api.geonames.org/searchJSON?q=saudi-arabia&maxRows=1&username=ghad1ee2r3
 //result= {"totalResultsCount":25879,"geonames":[{"adminCode1":"00","lng":"45","geonameId":102358,"toponymName":"Kingdom of Saudi Arabia","countryId":"102358","fcl":"A","population":33699947,"countryCode":"SA","name":"Saudi Arabia","fclName":"country, state, region,...","countryName":"Saudi Arabia","fcodeName":"independent political entity","adminName1":"","lat":"25","fcode":"PCLI"}]}
 
-const weatherBitApiKey = `&key=${process.env.WEATHERBIT_API_KEY}`;
-const weatherBitRoot = "https://api.weatherbit.io/v2.0/forecast/daily?";
-// const weatherBitParams = ;
+// const weatherBitApiKey = `&key=${process.env.WEATHERBIT_API_KEY}`;
+const weatherBitApiKey = `&key=a78a2e7529a5451a940c311fdc7ad9ab`;
 
-const pixabayApiKey = `?key=${process.env.PIXABAY_API}`;
+const weatherBitRoot = "https://api.weatherbit.io/v2.0/forecast/daily?";
+
+// const pixabayApiKey = `?key=${process.env.PIXABAY_API}`;
+const pixabayApiKey = `?key=32332003-3c1577f2a50e427f23a124a92`;
+
 const pixabayRoot = "https://pixabay.com/api/";
 const pixabayParams =
   "&image_type=photo&orientation=horizontal&safesearch=true&per_page=100";
@@ -44,36 +49,8 @@ app.get("/", function (req, res) {
   // res.sendFile(path.resolve('src/client/views/index.html'))
 });
 
-// app.get("/", function (req, res) {
-//   res.sendFile("dist/index.html");
-// });
-
-// app.get("/test", function (req, res) {
-//   res.send(mockAPIResponse);
-// });
-// Empty array to store project data
+// array to store project data
 let projectData = {};
-
-// app.post("/api", function (req, res) {
-//   console.log(`Url input: ${req.body.urlInput}`);
-//   textapi.sentiment(
-//     { url: req.body.urlInput },
-
-//     (error, response) => {
-//       if (error === null) {
-//         // Valid Url Response
-
-//         console.log("*** Valid Url ***");
-//         res.send(response);
-//       } else {
-//         // Invalid Url Response
-
-//         console.log("*** Invalid Url ***");
-//         res.status(404).json({ validation: "Invalid url, please re-enter." });
-//       }
-//     }
-//   );
-// });
 
 // Post route that collects user data and stores it in "projectData" object
 app.post("/clientData", async (req, res) => {
