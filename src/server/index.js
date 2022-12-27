@@ -114,6 +114,7 @@ app.get("/getWeatherbit", async (req, res) => {
 
 // Endpoint for the Pixabay API
 app.get("/getPix", async (req, res) => {
+  res.setHeader("X-Foo", "bar");
   console.log(`Pixabay request city is ${projectData.name}`);
   const city = projectData.name;
   let pixabayURL = `${pixabayRoot}${pixabayApiKey}&q=${city}${pixabayParams}`;
@@ -125,7 +126,6 @@ app.get("/getPix", async (req, res) => {
       console.log(
         `Error connecting to Pixabay API. Response status ${response.status}`
       );
-      res.setHeader("X-Foo", "bar");
       res.send(null);
     }
     let pixData = await response.json();
@@ -166,12 +166,12 @@ app.get("/getPix", async (req, res) => {
 // endpoint for REST api
 app.get("/getRest", async (req, res) => {
   console.log("Calling rest API");
+  res.setHeader("X-Foo", "bar");
   const country = projectData.countryName;
   const restUrl = `https://restcountries.eu/rest/v2/name/${country}`;
   console.log(`Rest API url is ${restUrl}`);
   try {
     const response = await fetch(restUrl);
-    res.setHeader("X-Foo", "bar");
 
     // Checks for failed data transfer from API, returns null
     if (!response.ok) {
