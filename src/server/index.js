@@ -31,7 +31,7 @@ const weatherBitApiKey = `&key=a78a2e7529a5451a940c311fdc7ad9ab`;
 const weatherBitRoot = "https://api.weatherbit.io/v2.0/forecast/daily?";
 
 // const pixabayApiKey = `?key=${process.env.PIXABAY_API}`;
-const pixabayApiKey = `?key=32332003-3c1577f2a50e427f23a124a92`;
+const pixabayApiKey = "?key=32332003-3c1577f2a50e427f23a124a92";
 
 const pixabayRoot = "https://pixabay.com/api/";
 const pixabayParams =
