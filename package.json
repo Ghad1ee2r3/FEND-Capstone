@@ -2,7 +2,9 @@
     "name": "example-project",
     "version": "1.0.0",
     "main": "index.js",
-    "engines": { "node": "16.x" },
+    "engines": {
+        "node": "16.x"
+    },
     "scripts": {
         "test": "jest",
         "start": "node src/server/index.js",
@@ -31,7 +33,7 @@
         "js-datepicker": "^5.18.2",
         "mini-css-extract-plugin": "^2.7.2",
         "mocha": "^10.2.0",
-        "node-fetch": "^3.3.0",
+        "node-fetch": "^2.0.0",
         "node-sass": "^8.0.0",
         "optimize-css-assets-webpack-plugin": "^6.0.1",
         "prettier": "^2.8.1",

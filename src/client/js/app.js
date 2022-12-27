@@ -82,7 +82,7 @@ async function updateUI() {
   const response = await fetch("/getData");
   const uiData = await response.json();
   console.log(uiData);
-  document.querySelector(".image-of-city").src = uiData.image1;
+  document.querySelector(".image_card").src = uiData.image1;
 
   document.querySelector(".city-name").innerHTML = uiData.name;
 }

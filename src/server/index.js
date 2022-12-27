@@ -40,11 +40,12 @@ const pixabayParams =
 //url (e.g) https://pixabay.com/api/?key=32332003-3c157&q=yellow+flowers&image_type=photo&pretty=true
 
 // designates what port the app will listen to for incoming requests
-app.listen(3001, function () {
-  console.log("Example app listening on port 3001!");
+app.listen(3000, function () {
+  console.log("Example app listening on port 3000!");
 });
 
 app.get("/", function (req, res) {
+  res.setHeader("X-Foo", "bar");
   res.sendFile("dist/index.html");
   // res.sendFile(path.resolve('src/client/views/index.html'))
 });
@@ -89,7 +90,7 @@ app.get("/getWeatherbit", async (req, res) => {
   console.log(`Weatherbit URL is ${weatherbitURL}`);
   try {
     const response = await fetch(weatherbitURL);
-
+    res.setHeader("X-Foo", "bar");
     // Checks for failed data transfer from API, returns null
     if (!response.ok) {
       console.log(
@@ -105,6 +106,7 @@ app.get("/getWeatherbit", async (req, res) => {
     console.log(weatherbitData);
     // If failed connection to API, return null
   } catch (error) {
+    res.setHeader("X-Foo", "bar");
     console.log(`Error connecting to server: ${error}`);
     res.send(null);
   }
@@ -123,6 +125,7 @@ app.get("/getPix", async (req, res) => {
       console.log(
         `Error connecting to Pixabay API. Response status ${response.status}`
       );
+      res.setHeader("X-Foo", "bar");
       res.send(null);
     }
     let pixData = await response.json();
@@ -168,6 +171,7 @@ app.get("/getRest", async (req, res) => {
   console.log(`Rest API url is ${restUrl}`);
   try {
     const response = await fetch(restUrl);
+    res.setHeader("X-Foo", "bar");
 
     // Checks for failed data transfer from API, returns null
     if (!response.ok) {
@@ -195,12 +199,15 @@ app.get("/getRest", async (req, res) => {
 // GET endpoint gets the data for the UI
 app.get("/getData", (req, res) => {
   console.log(projectData);
+  res.setHeader("X-Foo", "bar");
   res.send(projectData);
+  console.log(projectData);
   res.json({ message: "Data recieved" });
 });
 
 // Endpoint for testing express server
 app.get("/testEndpoint", async (req, res) => {
+  res.setHeader("X-Foo", "bar");
   res.json({ message: "The endpoint test passed!" });
 });
 
