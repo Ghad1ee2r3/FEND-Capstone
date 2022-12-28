@@ -27,7 +27,6 @@ const geoNamesParams = "&maxRows=1";
 
 // const weatherBitApiKey = `&key=${process.env.WEATHERBIT_API_KEY}`;
 const weatherBitApiKey = `&key=a78a2e7529a5451a940c311fdc7ad9ab`;
-
 const weatherBitRoot = "https://api.weatherbit.io/v2.0/forecast/daily?";
 
 // const pixabayApiKey = `?key=${process.env.PIXABAY_API}`;

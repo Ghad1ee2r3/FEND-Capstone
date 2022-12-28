@@ -1,10 +1,8 @@
-/* home page  */
 
-/* Screen of Phane */
 .container{
-    /* Set display to grid */
+  
       display:grid; 
-   /* setup rows amd columns */
+ 
       
       grid-template-rows: 100px 5fr 1fr;
       background-image: url('../media/background_home.jpg');
@@ -15,13 +13,12 @@
      
   } 
   
-  /* Screen of Desktop or Ipad */
+  
   @media(min-width:800px) {
     .container_blog_page{
         
-      /*  display to grid */
+      
       display:grid; 
-      /* setup rows amd columns */
        grid-template-columns: 300px 300px 300px;
       grid-template-rows: 100px 600px;
       background-image: url('../media/background_home.jpg');
@@ -34,8 +31,7 @@
       } 
   }
   .box{
-    /* border: 1px solid red;
-    background: #F8FA9D; */
+    
      }
   .header{
     grid-area:hd;
