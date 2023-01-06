@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static("dist"));
+app.use(express.static(__dirname + "/public"));
 
 console.log(__dirname);
 
@@ -39,12 +40,11 @@ const pixabayParams =
 //url (e.g) https://pixabay.com/api/?key=32332003-3c157&q=yellow+flowers&image_type=photo&pretty=true
 
 // designates what port the app will listen to for incoming requests
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+app.listen(3006, function () {
+  console.log("Example app listening on port 3002!");
 });
 
 app.get("/", function (req, res) {
-  res.setHeader("X-Foo", "bar");
   res.sendFile("dist/index.html");
   // res.sendFile(path.resolve('src/client/views/index.html'))
 });
@@ -89,7 +89,6 @@ app.get("/getWeatherbit", async (req, res) => {
   console.log(`Weatherbit URL is ${weatherbitURL}`);
   try {
     const response = await fetch(weatherbitURL);
-    res.setHeader("X-Foo", "bar");
     // Checks for failed data transfer from API, returns null
     if (!response.ok) {
       console.log(
@@ -105,7 +104,6 @@ app.get("/getWeatherbit", async (req, res) => {
     console.log(weatherbitData);
     // If failed connection to API, return null
   } catch (error) {
-    res.setHeader("X-Foo", "bar");
     console.log(`Error connecting to server: ${error}`);
     res.send(null);
   }
@@ -113,7 +111,7 @@ app.get("/getWeatherbit", async (req, res) => {
 
 // Endpoint for the Pixabay API
 app.get("/getPix", async (req, res) => {
-  res.setHeader("X-Foo", "bar");
+  // res.setHeader("X-Foo", "bar");
   console.log(`Pixabay request city is ${projectData.name}`);
   const city = projectData.name;
   let pixabayURL = `${pixabayRoot}${pixabayApiKey}&q=${city}${pixabayParams}`;
@@ -125,15 +123,23 @@ app.get("/getPix", async (req, res) => {
       console.log(
         `Error connecting to Pixabay API. Response status ${response.status}`
       );
-      res.send(null);
+      return res.send(null);
     }
     let pixData = await response.json();
     projectData["image1"] = pixData.hits[0].webformatURL;
     projectData["image2"] = pixData.hits[1].webformatURL;
     projectData["image3"] = pixData.hits[2].webformatURL;
     res.send(pixData);
-    console.log(image1, image2, image3);
-    image1, image2, (image3 = projectData);
+    console.log("image1, image2, image3");
+
+    console.log(
+      projectData["image1"],
+      projectData["image2"],
+      projectData["image3"]
+    );
+    projectData["image1"],
+      projectData["image2"],
+      (projectData["image3"] = projectData);
 
     // If no photo was returned for city, get one for the country instead
     if (responseJSON.total == 0) {
@@ -149,12 +155,12 @@ app.get("/getPix", async (req, res) => {
         console.log(
           `Error connecting to Pixabay. Response status ${response.status}`
         );
-        res.send(null);
+        return res.send(null);
       }
       responseJSON = await response.json();
     }
 
-    res.send(responseJSON);
+    return res.send(responseJSON);
     // If failed connection to API, return null
   } catch (error) {
     console.log(`Error connecting to server: ${error}`);
@@ -165,7 +171,7 @@ app.get("/getPix", async (req, res) => {
 // endpoint for REST api
 app.get("/getRest", async (req, res) => {
   console.log("Calling rest API");
-  res.setHeader("X-Foo", "bar");
+  // res.setHeader("X-Foo", "bar");
   const country = projectData.countryName;
   const restUrl = `https://restcountries.eu/rest/v2/name/${country}`;
   console.log(`Rest API url is ${restUrl}`);
@@ -186,7 +192,7 @@ app.get("/getRest", async (req, res) => {
     projectData["currencySym"] = restData[0].currencies[0].symbol;
     projectData["language"] = restData[0].languages[0].name;
     projectData["flag"] = restData[0].flag;
-    res.send(restData);
+    return res.send(restData);
     console.log(restData);
     // If failed connection to API, return null
   } catch (error) {
@@ -198,15 +204,15 @@ app.get("/getRest", async (req, res) => {
 // GET endpoint gets the data for the UI
 app.get("/getData", (req, res) => {
   console.log(projectData);
-  res.setHeader("X-Foo", "bar");
-  res.send(projectData);
+  // res.setHeader("X-Foo", "bar");
+  // res.json({ message: "Data recieved" });
+  return res.send(projectData);
   console.log(projectData);
-  res.json({ message: "Data recieved" });
 });
 
 // Endpoint for testing express server
 app.get("/testEndpoint", async (req, res) => {
-  res.setHeader("X-Foo", "bar");
+  // res.setHeader("X-Foo", "bar");
   res.json({ message: "The endpoint test passed!" });
 });
 
