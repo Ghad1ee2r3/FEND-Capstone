@@ -85,6 +85,9 @@ async function updateUI() {
   document.querySelector(".image_card").src = uiData.image1;
 
   document.querySelector(".city-name").innerHTML = uiData.name;
+  // document.querySelector(".icon-image").src = uiData.icon;
+  document.querySelector(".description").innerHTML = uiData.description;
+  document.querySelector(".temp").innerHTML = uiData.temp;
 }
 
 export { callServer, updateUI };

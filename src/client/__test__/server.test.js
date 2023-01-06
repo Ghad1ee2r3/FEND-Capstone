@@ -7,26 +7,16 @@ const request = supertest(app);
 
 describe("test server", function () {
   jest.setTimeout(600000);
-  it("gets the test endpoint", async (done) => {
+  it("gets the test endpoint", async () => {
     const res = await request.get("/testEndpoint");
-    // expect(res.status)
-    //   // .expect(200)
-    //   // .expect("Content-Type", "application/json")
-    //   // .expect(/{"message":".*","status":"success"}/, done);
-    //   .toBe(200)
+    expect(res.status);
+    // .expect(200)
+    // .expect("Content-Type", "application/json")
+    // .expect(/{"message":".*","status":"success"}/, done);
+    // .toBe(200)
     //   .expect("Content-Type", "application/json")
     //   .expect(/{"message":".*","status":"success"}/, done);
     expect(res.body.message).toBe("The endpoint test passed!");
     // done();
   });
 });
-
-// describe('Random Dog Image', function() {
-//   it('responds with expected JSON structure', function(done) {
-//     request('https://dog.ceo')
-//       .get('/api/breeds/image/random')
-//       .expect(200)
-//       .expect('Content-Type', 'application/json')
-//       .expect(/{"message":".*","status":"success"}/, done);
-//   });
-// });
