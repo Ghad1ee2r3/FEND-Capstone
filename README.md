@@ -10,6 +10,8 @@
 ## Getting started
 
 Remember that once you clone, you will still need to install everything:
+- node version : v18.12.1 
+- Npm version :9.1.2
 
 `cd` into your new folder and run:
 
